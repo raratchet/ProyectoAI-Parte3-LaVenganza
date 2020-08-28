@@ -18,7 +18,7 @@ public class Player : AbstactPlayer
 
     protected override void PlayTurn()
     {
-        if(TurnManager.instance.currentPlayer == this)
+        if (TurnManager.instance.currentPlayer == this)
         {
             if (nodoActual.getData() == endData)
             {
@@ -46,12 +46,6 @@ public class Player : AbstactPlayer
                 transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
             }
         }
-
         EndTurn();
-    }
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(3); 
     }
 }
