@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class Dijsktra : MonoBehaviour
 {
-
+    public BSNode currentNode;
+    public Graph graph;
+    public float endData;
     Queue<BSNode> qv = new Queue<BSNode>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
+        Debug.Log(transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentNode.data != endData)
+        {
+            List<BSNode> path = Dijkstra(currentNode, graph.search(endData));
+            currentNode = path[0];
+            transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
+        }
+        else
+        {
+            Debug.Log("CPU win");
+        }
+
     }
 
     bool DSuperSearch(BSNode start, BSNode end)
@@ -105,6 +118,7 @@ public class Dijsktra : MonoBehaviour
                 } while (tmp != start);
                 print(tmp.getData());
                 resetVisitados();
+                pathToVictory.Reverse();
                 //cout << end.val << endl;
 
                 return pathToVictory;
@@ -123,4 +137,19 @@ public class Dijsktra : MonoBehaviour
             qv.Dequeue();
         }
     }
+
+    //IEnumerator Timer()
+    //{
+    //    yield return new WaitForSeconds(3);
+    //    if (nodoActual.data != endData)
+    //    {
+    //        List<BSNode> path = Dijkstra(nodoActual, graph.search(endData));
+    //        nodoActual = path[0];
+    //        transform.position = transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("CPU win");
+    //    }
+    //}
 }

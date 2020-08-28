@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public BSNode nodoActual;
+    public BSNode currentNode;
     public Graph graph;
     public float endData;
     // Start is called before the first frame update
@@ -18,30 +18,30 @@ public class Player : MonoBehaviour
     {
         StartCoroutine (Timer());
 
-        if(nodoActual.getData() == endData)
+        if(currentNode.getData() == endData)
         {
             Debug.Log("Fin");
         }
 
-        if (Input.GetKeyDown("1") && nodoActual.adyacentes.Count > 0)
+        if (Input.GetKeyDown("1") && currentNode.adyacentes.Count > 0)
         {
-            nodoActual = nodoActual.adyacentes[0];
-            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            currentNode = currentNode.adyacentes[0];
+            transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
         }
-        if (Input.GetKeyDown("2") && nodoActual.adyacentes.Count > 1)
+        if (Input.GetKeyDown("2") && currentNode.adyacentes.Count > 1)
         {
-            nodoActual = nodoActual.adyacentes[1];
-            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            currentNode = currentNode.adyacentes[1];
+            transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
         }
-        if (Input.GetKeyDown("3") && nodoActual.adyacentes.Count > 2)
+        if (Input.GetKeyDown("3") && currentNode.adyacentes.Count > 2)
         {
-            nodoActual = nodoActual.adyacentes[2];
-            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            currentNode = currentNode.adyacentes[2];
+            transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
         }
-        if (Input.GetKeyDown("4") && nodoActual.adyacentes.Count > 3)
+        if (Input.GetKeyDown("4") && currentNode.adyacentes.Count > 3)
         {
-            nodoActual = nodoActual.adyacentes[3];
-            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            currentNode = currentNode.adyacentes[3];
+            transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
         }
     }
 

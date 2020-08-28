@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class Astar : MonoBehaviour
 {
+    public BSNode currentNode;
+    public Graph graph;
+    public float endData;
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (currentNode.data != endData)
+        {
+            List<BSNode> path = A_star(currentNode, graph.search(endData));
+            currentNode = path[1];
+            transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
+        }
+        else
+        {
+            Debug.Log("CPU win ");
+        }
     }
 
     public List<BSNode> A_star(BSNode start, BSNode end)
@@ -91,7 +103,7 @@ public class Astar : MonoBehaviour
                 }
             }
         }
-
+        
         return path;
     }
 
@@ -114,6 +126,8 @@ public class Astar : MonoBehaviour
             tmp = parentOf[tmp];
         }
         path.Add(start);
+
+        path.Reverse();
 
         return path;
     }
