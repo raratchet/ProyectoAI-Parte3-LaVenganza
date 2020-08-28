@@ -2,31 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Astar : MonoBehaviour
+public class Astar : Algorithm
 {
-    public BSNode currentNode;
-    public Graph graph;
-    public float endData;
-    // Start is called before the first frame update
-    void Start()
+    public override List<BSNode> DoAlgorithm(BSNode start, BSNode end)
     {
-        transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
+        return A_star(start, end);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (currentNode.data != endData)
-        {
-            List<BSNode> path = A_star(currentNode, graph.search(endData));
-            currentNode = path[1];
-            transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
-        }
-        else
-        {
-            Debug.Log("CPU win ");
-        }
-    }
 
     public List<BSNode> A_star(BSNode start, BSNode end)
     {

@@ -20,4 +20,12 @@ public class BSNode : MonoBehaviour
     {
 
     }
+
+    public void Update()
+    {
+        foreach(var nodo in adyacentes)
+        {
+            Debug.DrawLine(this.transform.position, nodo.transform.position);
+        }
+    }
 }
