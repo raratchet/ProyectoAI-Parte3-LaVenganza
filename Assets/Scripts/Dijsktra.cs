@@ -12,23 +12,13 @@ public class Dijsktra : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
+        
         Debug.Log(transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentNode.data != endData)
-        {
-            List<BSNode> path = Dijkstra(currentNode, graph.search(endData));
-            currentNode = path[0];
-            transform.position = transform.position = new Vector3(currentNode.gameObject.transform.position.x, currentNode.gameObject.transform.position.y, -1);
-        }
-        else
-        {
-            Debug.Log("CPU win");
-        }
 
     }
 
@@ -111,12 +101,12 @@ public class Dijsktra : MonoBehaviour
                 tmp = end;
                 do
                 {
-                    print(tmp.getData());
+                    //print(tmp.getData());
                     pathToVictory.Add(tmp);
                     tmp = tmp.padre;
                     //cout << tmp.getData() << endl;
                 } while (tmp != start);
-                print(tmp.getData());
+                //print(tmp.getData());
                 resetVisitados();
                 pathToVictory.Reverse();
                 //cout << end.val << endl;
