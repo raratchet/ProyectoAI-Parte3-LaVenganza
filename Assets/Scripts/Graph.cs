@@ -10,7 +10,7 @@ public class Graph : MonoBehaviour
     public GameObject nodoChad;
     public BSNode padre = null;
 
-    public void addEdge(float dataParent, float data, float cost)
+    public void addEdge(float dataParent, float data, float cost, float x, float y)
     {
         BSNode tmp = DSearch(dataParent);
         if (tmp != null && !dataParent.Equals(data))
@@ -19,6 +19,7 @@ public class Graph : MonoBehaviour
             {
 
                 BSNode nodo = Instantiate(nodoChad).GetComponent<BSNode>();
+                nodo.gameObject.transform.position = new Vector2(x, y);
                 print("Me crearon " + nodo.name);
                 //Comentario para que no se nos olvide
                 //Asignarle dato y val
@@ -161,17 +162,17 @@ public class Graph : MonoBehaviour
     void Start()
     {
 
-        addEdge(0, 1, 1);
-        addEdge(0, 2, 2);
-        addEdge(0, 8, 3);
-        addEdge(0, 3, 5);
-        addEdge(3, 5, 3);
-        addEdge(3, 4, 2);
-        addEdge(1, 4, 1);
-        addEdge(2, 4, 2);
-        addEdge(2, 1, 3);
-        addEdge(4, 6, 6);
-        addEdge(5, 6, 2);
+        addEdge(0, 1, 1, -2.65f, 0.84f);
+        addEdge(0, 2, 2, -3.08f, -0.19f);
+        addEdge(0, 8, 3, -5f, -0.15f);
+        addEdge(0, 3, 5, -3.1f, 1.98f);
+        addEdge(3, 5, 3, -1.28f, 2.19f);
+        addEdge(3, 4, 2, -1.3f, 0.99f);
+        addEdge(1, 4, 1, -1.3f, 0.99f);
+        addEdge(2, 4, 2, -1.3f, 0.99f);
+        addEdge(2, 1, 3, -2.65f, 0.84f);
+        addEdge(4, 6, 6, 0.09f, 1.53f);
+        addEdge(5, 6, 2, 0.09f, 1.53f);
 
         Debug.Log(search(5).getData());
     }
