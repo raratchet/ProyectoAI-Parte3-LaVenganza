@@ -21,12 +21,13 @@ public class IA_Player : AbstactPlayer
 
     protected override void PlayTurn()
     {
+        algorithm.transform.position = new Vector3(algorithm.currentNode.gameObject.transform.position.x, algorithm.currentNode.gameObject.transform.position.y, -1);
         if (algorithm.currentNode.data != algorithm.endData)
         {
-            List<BSNode> path = algorithm.DoAlgorithm(algorithm.currentNode, algorithm.graph.search(endData));
+            List<BSNode> path = algorithm.DoAlgorithm(algorithm.currentNode, algorithm.graph.search(algorithm.endData));
             if (path.Count > 0)
                 algorithm.currentNode = path[1];
-            algorithm.transform.position = new Vector3(algorithm.currentNode.gameObject.transform.position.x, algorithm.currentNode.gameObject.transform.position.y, -1);
+            
             EndTurn();
         }
         else

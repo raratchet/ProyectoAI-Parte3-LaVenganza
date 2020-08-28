@@ -93,13 +93,13 @@ public class Dijsktra : Algorithm
                     //print(tmp.getData());
                     pathToVictory.Add(tmp);
                     tmp = tmp.padre;
-                    if(tmp == start)
+                    if (tmp == start)
                     {
                         pathToVictory.Add(tmp);
                         break;
                     }
                     //cout << tmp.getData() << endl;
-                } 
+                }
                 //print(tmp.getData());
                 resetVisitados();
                 pathToVictory.Reverse();
@@ -108,7 +108,7 @@ public class Dijsktra : Algorithm
                 return pathToVictory;
             }
         }
-        //print("no se pudo encontrar un camino");
+        print("no se pudo encontrar un camino");
         return pathToVictory;
 
     }
