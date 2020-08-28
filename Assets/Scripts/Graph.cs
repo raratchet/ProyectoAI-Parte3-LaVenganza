@@ -9,6 +9,8 @@ public class Graph : MonoBehaviour
     public Queue<BSNode> qv = new Queue<BSNode>();
     public GameObject nodoChad;
     public BSNode padre = null;
+    public List<Vector3> valList = new List<Vector3>();
+    public List<Vector2> posList = new List<Vector2>();
 
     public void addEdge(float dataParent, float data, float cost, float x, float y)
     {
@@ -161,20 +163,19 @@ public class Graph : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        addEdge(valList[0].x, valList[0].y, valList[0].z, posList[0].x, posList[0].y);
+        addEdge(valList[1].x, valList[1].y, valList[1].z, posList[1].x, posList[1].y);
+        addEdge(valList[2].x, valList[2].y, valList[2].z, posList[2].x, posList[2].y);
+        addEdge(valList[3].x, valList[3].y, valList[3].z, posList[3].x, posList[3].y);
+        addEdge(valList[4].x, valList[4].y, valList[4].z, posList[4].x, posList[4].y);
+        addEdge(valList[5].x, valList[5].y, valList[5].z, posList[5].x, posList[5].y);
+        addEdge(valList[6].x, valList[6].y, valList[6].z, posList[5].x, posList[5].y);
+        addEdge(valList[7].x, valList[7].y, valList[7].z, posList[5].x, posList[5].y);
+        addEdge(valList[8].x, valList[8].y, valList[8].z, posList[0].x, posList[0].y);
+        addEdge(valList[9].x, valList[9].y, valList[9].z, posList[6].x, posList[6].y);
+        addEdge(valList[10].x, valList[10].y, valList[10].z, posList[6].x, posList[6].y);
 
-        addEdge(0, 1, 1, -2.65f, 0.84f);
-        addEdge(0, 2, 2, -3.08f, -0.19f);
-        addEdge(0, 8, 3, -5f, -0.15f);
-        addEdge(0, 3, 5, -3.1f, 1.98f);
-        addEdge(3, 5, 3, -1.28f, 2.19f);
-        addEdge(3, 4, 2, -1.3f, 0.99f);
-        addEdge(1, 4, 1, -1.3f, 0.99f);
-        addEdge(2, 4, 2, -1.3f, 0.99f);
-        addEdge(2, 1, 3, -2.65f, 0.84f);
-        addEdge(4, 6, 6, 0.09f, 1.53f);
-        addEdge(5, 6, 2, 0.09f, 1.53f);
-
-        Debug.Log(search(5).getData());
     }
 
     private void Update()
