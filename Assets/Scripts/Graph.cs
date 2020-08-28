@@ -24,7 +24,7 @@ public class Graph : MonoBehaviour
                 nodo.gameObject.transform.position = new Vector2(x, y);
                 //Comentario para que no se nos olvide
                 //Asignarle dato y val
-                nodo.padre = tmp;
+                //nodo.padre = tmp;
                 nodo.data = data;
                 tmp.adyacentes.Add(nodo);
 

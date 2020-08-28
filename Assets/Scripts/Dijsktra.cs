@@ -88,13 +88,18 @@ public class Dijsktra : Algorithm
                 }
 
                 tmp = end;
-                do
+                while (tmp != start)
                 {
                     //print(tmp.getData());
                     pathToVictory.Add(tmp);
                     tmp = tmp.padre;
+                    if(tmp == start)
+                    {
+                        pathToVictory.Add(tmp);
+                        break;
+                    }
                     //cout << tmp.getData() << endl;
-                } while (tmp != start);
+                } 
                 //print(tmp.getData());
                 resetVisitados();
                 pathToVictory.Reverse();
