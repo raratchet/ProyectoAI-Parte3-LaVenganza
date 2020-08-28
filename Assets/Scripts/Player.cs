@@ -18,37 +18,34 @@ public class Player : AbstactPlayer
 
     protected override void PlayTurn()
     {
-        if (TurnManager.instance.currentPlayer == this)
+        if (nodoActual.getData() == endData)
         {
-            if (nodoActual.getData() == endData)
-            {
-                Debug.Log("Fin");
-            }
+            Debug.Log("Fin");
+        }
 
-            if (Input.GetKeyDown("1") && nodoActual.adyacentes.Count > 0)
-            {
-                nodoActual = nodoActual.adyacentes[0];
-                transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
-                EndTurn();
-            }
-            if (Input.GetKeyDown("2") && nodoActual.adyacentes.Count > 1)
-            {
-                nodoActual = nodoActual.adyacentes[1];
-                transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
-                EndTurn();
-            }
-            if (Input.GetKeyDown("3") && nodoActual.adyacentes.Count > 2)
-            {
-                nodoActual = nodoActual.adyacentes[2];
-                transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
-                EndTurn();
-            }
-            if (Input.GetKeyDown("4") && nodoActual.adyacentes.Count > 3)
-            {
-                nodoActual = nodoActual.adyacentes[3];
-                transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
-                EndTurn();
-            }
+        if (Input.GetKeyDown("1") && nodoActual.adyacentes.Count > 0)
+        {
+            nodoActual = nodoActual.adyacentes[0];
+            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            EndTurn();
+        }
+        if (Input.GetKeyDown("2") && nodoActual.adyacentes.Count > 1)
+        {
+            nodoActual = nodoActual.adyacentes[1];
+            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            EndTurn();
+        }
+        if (Input.GetKeyDown("3") && nodoActual.adyacentes.Count > 2)
+        {
+            nodoActual = nodoActual.adyacentes[2];
+            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            EndTurn();
+        }
+        if (Input.GetKeyDown("4") && nodoActual.adyacentes.Count > 3)
+        {
+            nodoActual = nodoActual.adyacentes[3];
+            transform.position = new Vector3(nodoActual.gameObject.transform.position.x, nodoActual.gameObject.transform.position.y, -1);
+            EndTurn();
         }
     }
 }

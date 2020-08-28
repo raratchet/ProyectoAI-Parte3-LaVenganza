@@ -233,10 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f09035bd66edf4899ea3df249a00e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodoActual: {fileID: 1636465177}
-  graph: {fileID: 1636465178}
+  nodoActual: {fileID: 0}
+  graph: {fileID: 0}
   endData: 0
-  dijsktra: {fileID: 1940114810}
+  algorithm: {fileID: 1940114810}
 --- !u!4 &329719904
 Transform:
   m_ObjectHideFlags: 0

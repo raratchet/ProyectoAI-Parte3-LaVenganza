@@ -2,24 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dijsktra : MonoBehaviour
+public class Dijsktra : Algorithm
 {
-    public BSNode currentNode;
-    public Graph graph;
-    public float endData;
     Queue<BSNode> qv = new Queue<BSNode>();
 
-    // Start is called before the first frame update
-    void Start()
+    public override List<BSNode> DoAlgorithm(BSNode start, BSNode end)
     {
-        
-        Debug.Log(transform.position);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return Dijkstra(start, end);
     }
 
     bool DSuperSearch(BSNode start, BSNode end)
@@ -114,7 +103,7 @@ public class Dijsktra : MonoBehaviour
                 return pathToVictory;
             }
         }
-        print("no se pudo encontrar un camino");
+        //print("no se pudo encontrar un camino");
         return pathToVictory;
 
     }
