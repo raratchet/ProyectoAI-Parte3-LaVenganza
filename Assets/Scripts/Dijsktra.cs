@@ -14,6 +14,7 @@ public class Dijsktra : MonoBehaviour
     {
         
         Debug.Log(transform.position);
+        currentNode = FindObjectOfType<Graph>().gameObject.GetComponent<BSNode>();
     }
 
     // Update is called once per frame
@@ -99,13 +100,18 @@ public class Dijsktra : MonoBehaviour
                 }
 
                 tmp = end;
-                do
+                while (tmp != start)
                 {
                     //print(tmp.getData());
                     pathToVictory.Add(tmp);
                     tmp = tmp.padre;
+                    if(tmp == start)
+                    {
+                        pathToVictory.Add(tmp);
+                        break;
+                    }
                     //cout << tmp.getData() << endl;
-                } while (tmp != start);
+                } 
                 //print(tmp.getData());
                 resetVisitados();
                 pathToVictory.Reverse();

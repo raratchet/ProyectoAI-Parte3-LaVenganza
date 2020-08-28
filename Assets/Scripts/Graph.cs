@@ -25,9 +25,9 @@ public class Graph : MonoBehaviour
                 print("Me crearon " + nodo.name);
                 //Comentario para que no se nos olvide
                 //Asignarle dato y val
-                nodo.padre = tmp;
+                //nodo.padre = tmp;
                 nodo.data = data;
-                print("Añadí " + nodo.getData() + " a los adyacentes de " + tmp.getData());
+                //print("Añadí " + nodo.getData() + " a los adyacentes de " + tmp.getData());
                 tmp.adyacentes.Add(nodo);
 
                 tmp.costoAdyacentes.Add(cost);
@@ -35,7 +35,7 @@ public class Graph : MonoBehaviour
             else if (searchPadre(tmp, data) == null)
             {
                 BSNode dataNode = DSearch(data);
-                print("Añadí " + dataNode.getData() + " a los adyacentes de " + tmp.getData());
+                //print("Añadí " + dataNode.getData() + " a los adyacentes de " + tmp.getData());
                 tmp.adyacentes.Add(dataNode);
                 tmp.costoAdyacentes.Add(cost);
             }

@@ -24,9 +24,10 @@ public class IA_Player : AbstactPlayer
         {
             if (dijsktra.currentNode.data != dijsktra.endData)
             {
-                List<BSNode> path = dijsktra.Dijkstra(dijsktra.currentNode, dijsktra.graph.search(endData));
-                dijsktra.currentNode = path[0];
+                List<BSNode> path = dijsktra.Dijkstra(dijsktra.currentNode, dijsktra.graph.search(dijsktra.endData));
+                
                 dijsktra.transform.position = new Vector3(dijsktra.currentNode.gameObject.transform.position.x, dijsktra.currentNode.gameObject.transform.position.y, -1);
+                dijsktra.currentNode = path[1];
                 EndTurn();
             }
             else
